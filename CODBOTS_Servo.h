@@ -1,12 +1,12 @@
 
-#ifndef CODBOTS_SmoothServo_h
-#define CODBOTS_SmoothServo_h
+#ifndef CODBOTS_Servo_h
+#define CODBOTS_Servo_h
 
 #include <Arduino.h>
 #include <ESP32Servo.h>
 
 
-class CODBOTS_SmoothServo
+class CODBOTS_Servo
 {
 private:
     Servo servo;
@@ -22,7 +22,7 @@ private:
     bool turn_dir;
 
 public:
-    CODBOTS_SmoothServo(int pin_servo_);
+    CODBOTS_Servo(int pin_servo_);
     void begin();
     void setRange(int min, int center, int max);
     void setInverse(bool inverse_);
