@@ -3,17 +3,14 @@
 #define CODBOTS_Servo_h
 
 #include <Arduino.h>
-#include <ESP32Servo.h>
-
 
 class CODBOTS_Servo
 {
 private:
-    Servo servo;
     uint8_t pin_servo;
     int c_angle = 0;
-    int range[3] = {0,90,180};
-    int turn_speed = 1;
+    int range[3] = {0, 90, 180};
+    int turn_speed = 5;
     bool inverse;
 
     long write_time;
@@ -34,8 +31,8 @@ public:
     bool turn(int plus);
     bool turn(bool dir);
     void turn();
-    
-};
 
+    void writeServo(int angle);
+};
 
 #endif
