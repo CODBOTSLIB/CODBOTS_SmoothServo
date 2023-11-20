@@ -8,7 +8,7 @@ class CODBOTS_Servo
 {
 private:
     uint8_t pin_servo;
-    int c_angle = 0;
+
     int range[3] = {0, 90, 180};
     int turn_speed = 5;
     bool inverse;
@@ -19,6 +19,7 @@ private:
     bool turn_dir;
 
 public:
+    int c_angle = 0;
     CODBOTS_Servo(int pin_servo_);
     void begin();
     void setRange(int min, int center, int max);
