@@ -32,7 +32,7 @@ bool CODBOTS_Servo::write(int angle)
         }
 
         write_time = millis();
-        target_time = abs(c_angle - angle) * 2;
+        target_time = abs(c_angle - angle) * 10;
 
         c_angle = angle;
     }
