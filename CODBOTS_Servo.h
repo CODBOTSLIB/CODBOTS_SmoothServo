@@ -16,9 +16,8 @@ private:
     long write_time;
     long target_time;
 
-    bool turn_dir;
-
 public:
+    bool turn_dir;
     int c_angle = 0;
     CODBOTS_Servo(int pin_servo_);
     void begin();
