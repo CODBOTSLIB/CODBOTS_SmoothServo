@@ -1,10 +1,10 @@
 
-#ifndef CODBOTS_Servo_h
-#define CODBOTS_Servo_h
+#ifndef ii_Servo_h
+#define ii_Servo_h
 
 #include <Arduino.h>
 
-class CODBOTS_Servo
+class ii_Servo
 {
 private:
     uint8_t pin_servo;
@@ -19,7 +19,7 @@ private:
 public:
     bool turn_dir;
     int c_angle = 0;
-    CODBOTS_Servo(int pin_servo_);
+    ii_Servo(int pin_servo_);
     void begin();
     void setRange(int min, int center, int max);
     void setInverse(bool inverse_);

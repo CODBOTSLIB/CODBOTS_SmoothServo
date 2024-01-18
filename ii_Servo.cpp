@@ -1,22 +1,22 @@
-#include <CODBOTS_Servo.h>
+#include <ii_Servo.h>
 
-CODBOTS_Servo::CODBOTS_Servo(int pin_servo_)
+ii_Servo::ii_Servo(int pin_servo_)
 {
     pin_servo = pin_servo_;
 }
 
-void CODBOTS_Servo::begin()
+void ii_Servo::begin()
 {
 
     pinMode(pin_servo, OUTPUT);
 }
 
-void CODBOTS_Servo::setInverse(bool inverse_)
+void ii_Servo::setInverse(bool inverse_)
 {
     inverse = inverse_;
 }
 
-bool CODBOTS_Servo::write(int angle)
+bool ii_Servo::write(int angle)
 {
     angle = angle < range[0] ? range[0] : (angle > range[2] ? range[2] : angle);
     bool changed = c_angle != angle;
@@ -39,17 +39,17 @@ bool CODBOTS_Servo::write(int angle)
     return changed;
 }
 
-bool CODBOTS_Servo::isReached()
+bool ii_Servo::isReached()
 {
     return millis() - write_time > target_time;
 }
 
-bool CODBOTS_Servo::turn(int plus)
+bool ii_Servo::turn(int plus)
 {
     return write(c_angle + plus);
 }
 
-bool CODBOTS_Servo::turn(bool dir)
+bool ii_Servo::turn(bool dir)
 {
     if (dir)
     {
@@ -61,7 +61,7 @@ bool CODBOTS_Servo::turn(bool dir)
     }
 }
 
-void CODBOTS_Servo::turn()
+void ii_Servo::turn()
 {
     if (!turn(turn_dir))
     {
@@ -69,14 +69,14 @@ void CODBOTS_Servo::turn()
     }
 }
 
-void CODBOTS_Servo::wait()
+void ii_Servo::wait()
 {
     while (!isReached())
     {
     }
 }
 
-void CODBOTS_Servo::writeServo(int angle)
+void ii_Servo::writeServo(int angle)
 {
     int pulseWidth = map(angle, 0, 180, 500, 2400);
     digitalWrite(pin_servo, HIGH);
