@@ -84,3 +84,10 @@ void ii_Servo::writeServo(int angle)
     digitalWrite(pin_servo, LOW);
     delayMicroseconds(20000 - pulseWidth);
 }
+
+void ii_Servo::setRange(int min, int center, int max)
+{
+    range[0] = min;
+    range[1] = center;
+    range[2] = max;
+}
